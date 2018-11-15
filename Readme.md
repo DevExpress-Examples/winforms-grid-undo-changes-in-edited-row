@@ -1,3 +1,15 @@
+<!-- default file list -->
+*Files to look at*:
+
+* [Form1.cs](./CS/DxSample/Form1.cs) (VB: [Form1.vb](./VB/DxSample/Form1.vb))
+* [CancellingChangesDataController.cs](./CS/DxSample/Grid/CancellingChangesDataController.cs) (VB: [CancellingChangesDataController.vb](./VB/DxSample/Grid/CancellingChangesDataController.vb))
+* [GridControlEx.cs](./CS/DxSample/Grid/GridControlEx.cs) (VB: [GridControlEx.vb](./VB/DxSample/Grid/GridControlEx.vb))
+* [GridViewEx.cs](./CS/DxSample/Grid/GridViewEx.cs) (VB: [GridViewEx.vb](./VB/DxSample/Grid/GridViewEx.vb))
+* [GridViewExInfoRegistrator.cs](./CS/DxSample/Grid/GridViewExInfoRegistrator.cs) (VB: [GridViewExInfoRegistrator.vb](./VB/DxSample/Grid/GridViewExInfoRegistrator.vb))
+* [GridViewExOptionsBehavior.cs](./CS/DxSample/Grid/GridViewExOptionsBehavior.cs) (VB: [GridViewExOptionsBehavior.vb](./VB/DxSample/Grid/GridViewExOptionsBehavior.vb))
+* [Person.cs](./CS/DxSample/Person.cs) (VB: [Person.vb](./VB/DxSample/Person.vb))
+* [Program.cs](./CS/DxSample/Program.cs) (VB: [Program.vb](./VB/DxSample/Program.vb))
+<!-- default file list end -->
 # How to implement a capability to cancel current row modifications at the GridView level
 
 
