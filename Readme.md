@@ -1,3 +1,8 @@
+<!-- default file list -->
+*Files to look at*:
+
+* **[CancellingChangesDataController.cs](./CS/DxSample/Grid/CancellingChangesDataController.cs) (VB: [CancellingChangesDataController.vb](./VB/DxSample/Grid/CancellingChangesDataController.vb))**
+<!-- default file list end -->
 # How to implement a capability to cancel current row modifications at the GridView level
 
 
