@@ -1,4 +1,4 @@
-﻿Imports DevExpress.Data
+Imports DevExpress.Data
 Imports DevExpress.Utils.Controls
 Imports DevExpress.Utils.Serializing
 Imports DevExpress.XtraGrid
@@ -8,18 +8,20 @@ Imports System
 Imports System.ComponentModel
 
 Namespace DxSample.Grid
+
     Public Class GridViewEx
         Inherits GridView
 
         Public Sub New()
             MyBase.New()
         End Sub
+
         Public Sub New(ByVal ownerGrid As GridControl)
             MyBase.New(ownerGrid)
         End Sub
 
-        <DesignerSerializationVisibility(DesignerSerializationVisibility.Content), XtraSerializableProperty(XtraSerializationVisibility.Content)> _
-        Public Shadows ReadOnly Property OptionsBehavior() As GridViewExOptionsBehavior
+        <DesignerSerializationVisibility(DesignerSerializationVisibility.Content), XtraSerializableProperty(XtraSerializationVisibility.Content)>
+        Public Overloads ReadOnly Property OptionsBehavior As GridViewExOptionsBehavior
             Get
                 Return CType(MyBase.OptionsBehavior, GridViewExOptionsBehavior)
             End Get
@@ -30,9 +32,7 @@ Namespace DxSample.Grid
         End Function
 
         Protected Overrides Function CreateDataController() As BaseGridController
-            If requireDataControllerType = DataControllerType.Regular Then
-                Return New CancellingChangesDataController()
-            End If
+            If requireDataControllerType = DataControllerType.Regular Then Return New CancellingChangesDataController()
             Return MyBase.CreateDataController()
         End Function
 
@@ -43,9 +43,7 @@ Namespace DxSample.Grid
         Protected Overrides Sub UpdateDataControllerOptions()
             MyBase.UpdateDataControllerOptions()
             Dim controller As CancellingChangesDataController = TryCast(DataController, CancellingChangesDataController)
-            If controller IsNot Nothing Then
-                controller.CanCancelChanges = OptionsBehavior.CanCancelChanges
-            End If
+            If controller IsNot Nothing Then controller.CanCancelChanges = OptionsBehavior.CanCancelChanges
         End Sub
     End Class
 End Namespace

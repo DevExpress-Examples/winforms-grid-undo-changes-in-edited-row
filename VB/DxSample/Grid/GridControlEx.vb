@@ -1,7 +1,8 @@
-﻿Imports DevExpress.XtraGrid
+Imports DevExpress.XtraGrid
 Imports DevExpress.XtraGrid.Registrator
 
 Namespace DxSample.Grid
+
     Public Class GridControlEx
         Inherits GridControl
 

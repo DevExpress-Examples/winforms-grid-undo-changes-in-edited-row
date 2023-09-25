@@ -1,15 +1,17 @@
-﻿Imports DevExpress.Data
-Imports System
+Imports DevExpress.Data
 Imports System.Collections.Generic
 Imports System.ComponentModel
 
 Namespace DxSample.Grid
+
     Public Class CancellingChangesDataController
         Inherits CurrencyDataController
 
         Private Class ColumnValuePair
-            Public Property Column() As DataColumnInfo
-            Public Property Value() As Object
+
+            Public Property Column As DataColumnInfo
+
+            Public Property Value As Object
 
             Public Sub Free()
                 Column = Nothing
@@ -17,11 +19,11 @@ Namespace DxSample.Grid
             End Sub
         End Class
 
-        Private originalValues As New List(Of ColumnValuePair)()
+        Private originalValues As List(Of ColumnValuePair) = New List(Of ColumnValuePair)()
 
-        Public Property CanCancelChanges() As Boolean
+        Public Property CanCancelChanges As Boolean
 
-        Private ReadOnly Property ShouldCancelChanges() As Boolean
+        Private ReadOnly Property ShouldCancelChanges As Boolean
             Get
                 Return CanCancelChanges AndAlso CurrentControllerRow <> NewItemRow AndAlso Not(TypeOf CurrentControllerRowObject Is IEditableObject)
             End Get
@@ -32,7 +34,7 @@ Namespace DxSample.Grid
             If ShouldCancelChanges AndAlso originalValues.Count = 0 Then
                 For Each col As DataColumnInfo In Columns
                     originalValues.Add(New ColumnValuePair() With {.Column = col, .Value = GetCurrentRowValue(col)})
-                Next col
+                Next
             End If
         End Sub
 
@@ -41,9 +43,11 @@ Namespace DxSample.Grid
             If result Then
                 For Each val As ColumnValuePair In originalValues
                     val.Free()
-                Next val
+                Next
+
                 originalValues.Clear()
             End If
+
             Return result
         End Function
 
@@ -52,14 +56,16 @@ Namespace DxSample.Grid
             For Each val As ColumnValuePair In originalValues
                 SetCurrentRowValue(val.Column, val.Value)
                 val.Free()
-            Next val
+            Next
+
             originalValues.Clear()
         End Sub
 
         Public Overrides Sub Dispose()
             For Each val As ColumnValuePair In originalValues
                 val.Free()
-            Next val
+            Next
+
             originalValues.Clear()
             MyBase.Dispose()
         End Sub
